@@ -1,0 +1,71 @@
+ .wrapper{ 
+   display: flex;
+   flex: 1 1 auto;
+   height: 30vh;
+ }
+ 
+ .years{ 
+   margin: auto;
+
+   &__input{
+      margin: auto;
+      width: 300px;
+      height: 20px;
+      & ~ label { 
+         display: block;
+         border-radius: 30px;
+      }
+      &:not(:focus) ~ label { 
+         transition: 2s all;
+         background: rgba(255, 0, 0, 0.293);
+         // background: linear-gradient(150deg , rgb(0, 58, 129) , rgb(22, 169, 177));
+         transform: translate(50px , -50px);
+      }
+      &:focus ~ label{ 
+         transition: 2s all;
+         background: rgba(0, 0, 255, 0.192);
+         // background: linear-gradient(150deg , rgb(129, 0, 17) , rgb(190, 110, 6));
+         transform: translate(10px , -50px);
+      }
+
+      &:out-of-range {
+         color: red;
+         background-color: rgba(146, 17, 17, 0.216);
+         & ~ label { 
+            color: red
+         }
+       } 
+      
+      &:in-range {
+         color: blue;
+         background-color: rgba(0, 26, 255, 0.2);
+         & ~ label { 
+            color: blue;
+         }
+      }
+
+   }
+ }
+ 
+ .rotate__circle{ 
+   background: red;
+   border-radius: 50%;
+   width: 100px;
+   height: 100px;
+   margin: auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   animation: rotate 3s infinite ;
+ }
+
+
+ @keyframes rotate { 
+   0%{ 
+      transform: rotate(0deg) ; 
+   }
+   100%{ 
+      transform: rotate(360deg);
+   }
+ }
+
